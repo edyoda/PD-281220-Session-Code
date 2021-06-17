@@ -1,0 +1,1 @@
+Various resources for the Django session.
