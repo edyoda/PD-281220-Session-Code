@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ month|title }} Challenge</title>
+</head>
+<body>
+    <h3>{{ month|title }}'s Challenge</h3>
+    {% if challenge_text is not None %}
+        <p>{{ challenge_text }}</p>
+    {% else %}
+        <p>The challenge has not been set yet !!</p>
+    {% endif %}
+</body>
+</html>
