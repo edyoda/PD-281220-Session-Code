@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+Content Creator
+{% endblock %}
+
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/index.css' %}"/>
+<link rel="stylesheet" href="{% static 'blog/posts.css' %}" />
+{% endblock css_files %}
+
+{% block content %}
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/woods.jpg' %}" alt="name of the blog"/>
+        <h2>Content Creator</h2>
+    </header>
+    <p>Hi, this is Kallol's content</p>
+</section>
+
+<section id="latest-posts">
+    <h2>Latest Publications</h2>
+    <ul>
+        {% for post in posts %}
+            {% include 'blog/includes/post_summary.html' with post=post %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What do i do ??</h2>
+    <p>
+        I love programming, football euros, and also like to paint
+    </p>
+    <p>
+        My Goal is to become very successful and enjoy the most.
+    </p>
+</section>
+{% endblock content %}
