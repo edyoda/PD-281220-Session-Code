@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Review</title>
+</head>
+<body>
+    {% if has_error %}
+        <h2 style="color:red">Please Fill all the values</h2>
+    {% endif %}
+    <form method="POST" action="/">
+        {% csrf_token %}
+        <label for="username">Username : </label>
+        <input id="username" name="username" type="text" > <br>
+        <label for="password">Password : </label>
+        <input id="password" name="password" type="text" > <br>
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
