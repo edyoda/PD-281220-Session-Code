@@ -1,0 +1,20 @@
+{% extends 'reviews/base.html' %}
+{% load static %}
+
+{% block title %}
+All Reviews
+{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href='{% static 'reviews/review_list.css' %}'/>
+{% endblock css_files %}
+
+{% block content %}
+<ul>
+    {% for review in reviews %}
+        <li>
+            <a href="{% url 'selected-review' review.id %}">{{ review.user_name }} | Rating : {{ review.rating }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

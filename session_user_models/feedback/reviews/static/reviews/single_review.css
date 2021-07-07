@@ -1,0 +1,23 @@
+.single_review {
+    width: 90%;
+    margin: 2rem auto;
+    max-width: 30rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .single_review .single_review_content {
+      border-bottom: 2px dotted blue;
+  }
+  
+  .single_review .footer_content {
+      padding: 0.5rem 0.5rem 0 0.5rem;
+  }
+  
+  .single_review .footer_content p {
+      width:100%;
+      text-align: right;
+  }
+  

@@ -1,0 +1,25 @@
+{% extends 'reviews/base.html' %}
+{% load static %}
+
+{% block title %}
+Reviews Detail
+{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'reviews/single_review.css' %}"/>
+{% endblock css_files %}
+
+{% block content %}
+<div class="single_review">
+
+    <div class="single_review_content">
+        <p>
+        {{ review.review_text|linebreaks }}
+        </p>
+    </div>
+
+    <div class="footer_content">
+        <p>{{ review.user_name }} ({{ review.rating }})</p>
+    </div>
+</div>
+{% endblock %}
