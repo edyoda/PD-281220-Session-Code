@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+Read Later
+{% endblock %}
+
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/stored_posts.css' %}" />
+{% endblock %}
+
+{% block content %}
+<section id="stored-posts">
+{% if not has_posts %}
+    <p>You have not added any post for reading later</p>
+{% else %}
+    <ul>
+        {% for post in posts %}
+            <li><a href = {% url 'selected-post' post.slug %}>{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+</section>
+{% endblock %}

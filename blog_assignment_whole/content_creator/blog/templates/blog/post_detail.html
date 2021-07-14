@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+{{ post.title|title }}
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post_detail.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% if comment_form.errors %}
+    <div id="alert">
+        <h2>Saving the comment Failed !!</h2>
+        <p>Please check the comment form below the post and fix the errors.</p>
+        <a href="#comment-form">Fix!</a>
+    </div>
+{% endif %}
+
+<section id="summary">
+<h2>{{ post.title|title }}</h2>
+<p>
+    {% for tag in post_tags %}
+        <span class='tag'>{{ tag.caption }}</span>
+    {% endfor %}
+</p>
+<div id="read-later">
+    <form method="POST" action={% url 'read-later' %}>
+        {% csrf_token %}
+        <input type="hidden" name="read_later_id" value="{{ post.id }}" />
+        <button>
+        {% if not is_read_for_later %}
+            Read Later
+        {% else %}
+            Remove from "Read Later" List
+        {% endif %}
+        </button>
+    </form>
+</div>
+<article>
+    <img src="{% static 'blog/images/'|add:post.image %}" alt=""/>
+    <address>By <a href="mailto:{{ post.author.email_address }}">{{ post.author }}</a></address>
+    <div>
+        Last Updated on <time>{{ post.date|date:"d M Y" }}</time>
+    </div>
+</article>
+</section>
+<main>
+    {{ post.content|linebreaks }}
+</main>
+
+<section id="comments">
+    <ul>
+    {% for comment in comments %}
+    <li>
+        <h2>{{ comment.user_name }}</h2>
+        <p>{{ comment.text|linebreaks }}</p>
+    </li>
+    {% endfor %}
+    </ul>
+</section> 
+
+<section id="comment-form">
+    <h2>Your Comment</h2>
+    <form method="POST" action="{% url 'selected-post' post.slug %}">
+        {% csrf_token %}
+        {% for fields in comment_form %}
+         <div class="form-control {% if fields.errors %}invalid{% endif %}">
+            {{ fields.label_tag }}
+            {{ fields }}
+            {{ fields.errors }}
+        </div>
+        {% endfor %}
+        <button>Save Comment</button>
+    </form>
+</section>
+{% endblock %}
