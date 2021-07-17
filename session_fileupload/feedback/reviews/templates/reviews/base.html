@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'reviews/style.css' %}"/>
+    {% block css_files %}
+    {% endblock css_files %}
+</head>
+<body>
+<header id="main-navigation">
+    <h2>
+       {% if user.is_authenticated %}
+            <a href="{% url 'review-add' %}">Add</a><span>&nbsp;|&nbsp;</span>
+       {% endif %}
+        <a href="{% url 'all-reviews' %}">View</a><span>&nbsp;Review</span>
+    </h2>
+    
+    <nav>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>&nbsp;&nbsp;<span>({{ user.get_username }})</span>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a> <span>|</span>
+            <a href="{% url 'register-user' %}">Register</a>
+        {% endif %}
+    </nav>
+</header>
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

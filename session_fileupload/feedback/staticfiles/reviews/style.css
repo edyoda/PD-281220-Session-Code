@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+html {
+  font-family: 'Open Sans', 'Lato', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+#main-navigation {
+  background-color: BLUE;
+  width: 80%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#main-navigation a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+#main-navigation span {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+#main-navigation span{
+    color: white;
+}
+
+#main-navigation a:hover,
+#main-navigation a:active {
+  color: #cf79f1;
+}
+
+#main-navigation h1 a:hover,
+#main-navigation h1 a:active {
+  color: white;
+}
+
+.content {
+  margin: 5rem auto;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+form {
+  width: 90%;
+  max-width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  background-color: #1f0050;
+  color: white;
+  border: 1px solid #1f0050;
+}
+
+button:hover,
+button:active {
+  background-color: #320777;
+  border-color: #320777;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-control input {
+  font: inherit;
+  padding: 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  display: block;
+  width: 10rem;
+}
+
+.form-control input:focus {
+  border-color: #1f0050;
+  outline: none;
+  background-color: #f4eeff;
+}
+
+.form-control label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.errorlist {
+  list-style: none;
+  margin: 0.5rem 0;
+  padding: 0;
+  color: #680000;
+}
+
+.errors input {
+  border-color: #680000;
+  background-color: #fde3e3;
+}
+
+.errors label {
+  color: #680000;
+}
+
+#welcome_page {
+  width: 90%;
+  max-width: 30rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
